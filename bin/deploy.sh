@@ -21,7 +21,7 @@ quit_on_error
 quit_on_error
 
 # Validate pod & podspec
-./bin/pod.sh -v
+./bin/pod.sh -s
 
 quit_on_error
 

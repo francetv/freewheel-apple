@@ -13,7 +13,7 @@ help() {
 }
 
 version_for_os() {
-  /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$1/AdManager.framework/Info.plist"
+  /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$1/universal/AdManager.framework/Info.plist"
 }
 
 number_of_components() {

@@ -4,6 +4,8 @@ GREEN="\033[0;32m"
 RED="\033[0;31m"
 NC="\033[0m" # No Color
 
+PATH_TO_BINARY="universal/AdManager.framework/AdManager"
+
 X86="x86_64"
 ARMV7="armv7"
 ARMV7S="armv7s"
@@ -26,7 +28,7 @@ quit_on_error() {
 }
 
 available_archs_for_os() {
-  lipo -i $1/AdManager.framework/AdManager  
+  lipo -i $1/$PATH_TO_BINARY
 }
 
 contains_element_in_array() {
@@ -82,7 +84,7 @@ validate_archs_for_os() {
 
 contains_bitcode_for_os() {
   result=1
-  output=$(otool -l $1/AdManager.framework/AdManager | grep __LLVM | head -n1) # display load commands, look for what's interesting, take the first occurrence
+  output=$(otool -l $1/$PATH_TO_BINARY | grep __LLVM | head -n1) # display load commands, look for what's interesting, take the first occurrence
 
   if [[ $output == *"segname __LLVM"* ]] # pattern matching
   then
