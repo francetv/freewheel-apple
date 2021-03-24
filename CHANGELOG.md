@@ -1,5 +1,11 @@
 ## `3` (23 March 2021)
 
+Version `3` and `2.1` are identical.
+
+## `2.1` (24 March 2021)
+
+Version `3` and `2.1` are identical.
+
 - Fix iOS distribution
 
 ## `2` (21 December 2020)
