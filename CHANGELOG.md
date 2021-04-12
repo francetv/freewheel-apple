@@ -4,7 +4,7 @@
 
 ## `2.1` (24 March 2021)
 
-- Fix iOS distribution
+- Remove remaining traces of OMSDK (fix iOS distribution)
 
 ## `2` (21 December 2020)
 
