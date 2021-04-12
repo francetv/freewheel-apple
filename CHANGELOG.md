@@ -1,3 +1,7 @@
+## `2.2` (12 April 2021)
+
+- Fix short version number to `6.38.0` in plists
+
 ## `3` (23 March 2021)
 
 Version `3` and `2.1` are identical.
