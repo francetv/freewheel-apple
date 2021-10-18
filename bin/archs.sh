@@ -4,7 +4,10 @@ GREEN="\033[0;32m"
 RED="\033[0;31m"
 NC="\033[0m" # No Color
 
-PATH_TO_BINARY="universal/AdManager.framework/AdManager"
+PATH_TO_BINARY_IOS="AdManager.xcframework/ios-arm64_armv7/AdManager.framework/AdManager"
+PATH_TO_BINARY_IOS_SIMU="AdManager.xcframework/ios-x86_64-simulator/AdManager.framework/AdManager"
+PATH_TO_BINARY_TVOS="AdManager.xcframework/tvos-arm64/AdManager.framework/AdManager"
+PATH_TO_BINARY_TVOS_SIMU="AdManager.xcframework/tvos-x86_64-simulator/AdManager.framework/AdManager"
 
 X86="x86_64"
 ARMV7="armv7"
@@ -28,7 +31,14 @@ quit_on_error() {
 }
 
 available_archs_for_os() {
-  lipo -i $1/$PATH_TO_BINARY
+  echo -e "${GREEN}Checking bitcode for iOS.${NC}"
+  lipo -i $PATH_TO_BINARY_IOS
+  echo -e "${GREEN}Checking bitcode for iOS simulator.${NC}"
+  lipo -i $PATH_TO_BINARY_IOS_SIMU
+  echo -e "${GREEN}Checking bitcode for tvOS.${NC}"
+  lipo -i $PATH_TO_BINARY_TVOS
+  echo -e "${GREEN}Checking bitcode for tvOS simulator.${NC}"
+  lipo -i $PATH_TO_BINARY_IOS_SIMU
 }
 
 contains_element_in_array() {
@@ -47,12 +57,12 @@ contains_element_in_array() {
 validate_archs_for_os() {
   result=0
   missing_archs=""
-  available_archs=$(available_archs_for_os $1 | cut -d : -f3 | awk "{$1=$1}1") # split message using ':' as delimiter, then trim spaces
+  available_archs=$(available_archs_for_os | cut -d : -f3 | awk "{$1=$1}1") # split message using ':' as delimiter, then trim spaces
   required_archs=""
 
   if [[ $1 == iOS ]]
   then
-    required_archs="$X86 $ARMV7 $ARMV7S $ARM64"
+    required_archs="$X86 $ARMV7 $ARM64"
   elif [[ $1 == tvOS ]]
   then
     required_archs="$X86 $ARM64"
@@ -84,7 +94,7 @@ validate_archs_for_os() {
 
 contains_bitcode_for_os() {
   result=1
-  output=$(otool -l $1/$PATH_TO_BINARY | grep __LLVM | head -n1) # display load commands, look for what's interesting, take the first occurrence
+  output=$(otool -l $1 | grep __LLVM | head -n1) # display load commands, look for what's interesting, take the first occurrence
 
   if [[ $output == *"segname __LLVM"* ]] # pattern matching
   then
@@ -113,11 +123,10 @@ validate_bitcode_for_os() {
 
 if [[ $1 == "-s" || $1 == "--scan" ]]
 then
-  available_archs_for_os iOS
-  available_archs_for_os tvOS
+  available_archs_for_os
 elif [[ $1 == "-b" || $1 == "--bitcode" ]]
 then
-  ios_res=$(contains_bitcode_for_os iOS)
+  ios_res=$(contains_bitcode_for_os $PATH_TO_BINARY_IOS)
 
   if [[ $ios_res == 0 ]]
   then
@@ -126,7 +135,7 @@ then
     echo "Bitcode NOT enabled for iOS."
   fi
 
-  tvos_res=$(contains_bitcode_for_os tvOS)
+  tvos_res=$(contains_bitcode_for_os $PATH_TO_BINARY_TVOS)
 
   if [[ $tvos_res == 0 ]]
   then
@@ -147,7 +156,7 @@ then
 
   echo -e "${GREEN}Checking bitcode for tvOS.${NC}"
 
-  validate_bitcode_for_os tvOS
+  validate_bitcode_for_os $PATH_TO_BINARY_TVOS
 
   quit_on_error
 
