@@ -31,7 +31,9 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '12.0'
 
+  s.static_framework = true
+
   s.source_files = 'MyLibrary/Classes/**/*'
 
-  s.dependency 'freewheel', '2.2'
+  s.dependency 'freewheel', '4'
 end
