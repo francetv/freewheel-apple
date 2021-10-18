@@ -13,7 +13,15 @@ help() {
 }
 
 version_for_os() {
-  /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$1/universal/AdManager.framework/Info.plist"
+  PATH=''
+  if [[ $1 == "iOS" ]]
+  then
+    PATH="AdManager.xcframework/ios-arm64_armv7/AdManager.framework/Info.plist"
+  elif [[ $1 == "tvOS" ]]
+  then
+    PATH="AdManager.xcframework/tvos-arm64/AdManager.framework/Info.plist"
+  fi
+  /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$PATH"
 }
 
 number_of_components() {
