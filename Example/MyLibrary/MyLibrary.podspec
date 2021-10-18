@@ -33,5 +33,5 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'MyLibrary/Classes/**/*'
 
-  s.dependency 'freewheel', '2'
+  s.dependency 'freewheel', '2.2'
 end
