@@ -11,6 +11,12 @@ import Foundation
 public enum MyLibrary {
   public static func initAdManager() {
     let adManager = AdManager.newAdManager()
-    print("Hello \(String(describing: adManager))")
+    let bundle = Bundle(for: FWSlotConfiguration.self)
+
+    guard let version = bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") else { abort() }
+
+    print("👉 --> Current Freewheel SDK version: \(version)")
+    print("👉 More Info:")
+    print("👉 AdManager -> \(adManager)")
   }
 }
