@@ -10,4 +10,4 @@ francetv take on creating a pod for Freewheel AdManager iOS and tvOS SDK
 | 2   | 6.38.0 | 6.38.0  | Dynamic framework (does not include OMSDK) |
 | 2.1 | 6.38.0 | 6.38.0  | Remove remaining traces of OMSDK           |
 | 2.2 | 6.38.0 | 6.38.0  | Fix CFBundleShortVersionString in plists   |
-| 4   | 6.44.0 | 6.44.0  | Update version (xcframework)               |
+| 2.3 | 6.44.0 | 6.44.0  | Update version (xcframework)               |

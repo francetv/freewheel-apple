@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'freewheel'
-  s.version      = '4'
+  s.version      = '2.3'
   s.summary      = 'francetv take on creating a pod for Freewheel AdManager iOS and tvOS SDK'
   s.homepage     = 'https://github.com/francetv/freewheel-apple'
   s.authors      = {

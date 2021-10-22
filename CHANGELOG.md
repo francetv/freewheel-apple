@@ -1,3 +1,7 @@
+## `2.3` (22 October 2021)
+
+- `AdManager.xcframework` version `6.44.0` for iOS & tvOS
+
 ## `2.2` (12 April 2021)
 
 - Fix short version number to `6.38.0` in plists
