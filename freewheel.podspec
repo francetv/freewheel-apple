@@ -30,7 +30,5 @@ Pod::Spec.new do |s|
   # tvOS #
   ########
   s.tvos.deployment_target = '12.2'
-  s.tvos.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=appletvsimulator*]' => 'arm64', }
-  s.tvos.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=appletvsimulator*]' => 'arm64' }
 
 end
