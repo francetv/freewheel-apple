@@ -283,7 +283,13 @@ typedef NS_ENUM(NSUInteger, FWUserAction) {
 	FWUserActionClick,
 	
 	/** User action: the video ad is seeked by the user. Used only in Stream Stitcher integrations. */
-	FWUserActionSeek
+	FWUserActionSeek,
+	
+	/** User action: Picture in Picture mode is activated */
+	FWUserActionActivatePipPlay,
+
+	/** User action: Picture in Picture mode is deactivated */
+	FWUserActionDeactivatePipPlay
 };
 
 /**
@@ -678,6 +684,17 @@ FW_EXTERN NSString *const FWAdLoadedEvent;
 FW_EXTERN NSString *const FWAdPreInitEvent;
 
 /**
+ FWAdSkippableStateChangedEvent is dispatched when an AdInstance is skippable. This is determined when the AdInstance's current playhead time passes the skipoffset time. This will not fire if no skipoffset is provided.
+
+ The player can access the skippable state from `[FWAdInstance getAdSkippableState]`. The player can also get the skippable state at the time of firing the `FWAdSkippableStateChangedEvent` event from the event notification's `userInfo` payload using `FWInfoKeyAdSkippableState`.
+
+ - See:
+	- `FWAdEventNotification`
+	- `FWInfoKeyAdSkippableState`
+ */
+FW_EXTERN NSString *const FWAdSkippableStateChangedEvent;
+
+/**
 	Ad event: ad impression. Ad starts.
  
 	- See: `FWAdEventNotification`
@@ -808,7 +825,7 @@ FW_EXTERN NSString *const FWAdMinimizeEvent;
 
 /**
 	Ad event: skipped. Ad has been skipped by the user.
- 
+
 	- See: `FWAdEventNotification`
  */
 FW_EXTERN NSString *const FWAdSkippedByUserEvent;
@@ -865,6 +882,15 @@ FW_EXTERN NSString *const FWAdBufferingStartEvent;
  */
 FW_EXTERN NSString *const FWAdBufferingEndEvent;
 
+/**
+ Ad event: Ad reached a progress point. Player can use this event to listen for when a progress tracking event fired. Player can access the progress offset value in seconds using FWInfoKeyAdOffset. VPAID ads do not support this event type.
+
+ - See:
+ - `FWAdEventNotification`
+ - `FWInfoKeyAdOffset`
+ */
+FW_EXTERN NSString *const FWAdProgressEvent;
+
 #pragma mark - Ad Event Types
 
 /**
@@ -876,6 +902,7 @@ FW_EXTERN NSString *const FWAdBufferingEndEvent;
 		- `FWEventTypeClick`
 		- `FWEventTypeStandard`
 		- `FWEventTypeCustom`
+		- `FWEventTypeProgress`
  */
 FW_EXTERN NSString *const FWEventTypeClickTracking;
 
@@ -888,6 +915,7 @@ FW_EXTERN NSString *const FWEventTypeClickTracking;
 		- `FWEventTypeClick`
 		- `FWEventTypeStandard`
 		- `FWEventTypeCustom`
+		- `FWEventTypeProgress`
  */
 FW_EXTERN NSString *const FWEventTypeImpression;
 
@@ -900,6 +928,7 @@ FW_EXTERN NSString *const FWEventTypeImpression;
 		- `FWEventTypeImpression`
 		- `FWEventTypeStandard`
 		- `FWEventTypeCustom`
+		- `FWEventTypeProgress`
 
  */
 FW_EXTERN NSString *const FWEventTypeClick;
@@ -913,6 +942,7 @@ FW_EXTERN NSString *const FWEventTypeClick;
 		- `FWEventTypeImpression`
 		- `FWEventTypeClick`
 		- `FWEventTypeCustom`
+		- `FWEventTypeProgress`
  */
 FW_EXTERN NSString *const FWEventTypeStandard;
 
@@ -925,9 +955,21 @@ FW_EXTERN NSString *const FWEventTypeStandard;
 		- `FWEventTypeImpression`
 		- `FWEventTypeClick`
 		- `FWEventTypeStandard`
+		- `FWEventTypeProgress`
  */
 FW_EXTERN NSString *const FWEventTypeCustom;
 
+/**
+	Event type: User progress
+
+	- See: `[FWAdInstance getEventCallbackUrlsByEventName:eventType:]`
+	- SeeAlso:
+		- `FWEventTypeClickTracking`
+		- `FWEventTypeImpression`
+		- `FWEventTypeClick`
+		- `FWEventTypeStandard`
+ */
+FW_EXTERN NSString *const FWEventTypeProgress;
 #pragma mark - Parameters
 /**
 	Parameter: `NSString` representing the timeout value of playing a video ad in seconds.
@@ -1544,6 +1586,33 @@ FW_EXTERN NSString *const FWParameterIABConsentConsentStringKey;
 */
 FW_EXTERN NSString *const FWParameterIABUSPrivacyStringKey;
 
+/**
+	Parameter: `NSString` representing the maximum amount of VAST wrappers allowed. The ad will fail with an error when the number of wrappers equals this number.
+	Should be a string value which can convert to a int. Default value is "5".
+
+	- Note: When a timeout occurs, a `FWAdEventNotification` with error code `FWErrorIO` will be dispatched. The ad will be terminated on this error.
+	- SeeAlso: `FWAdEventNotification`
+	- Note: Ad traffickers should use `translator.vast.maxWrapperCount` instead of `FWParameterVastMaxWrapperCount` when setting this parameter in MRM UI.
+	- See:
+		- `[FWContext setParameter:withValue:forLevel:]`
+		- `[FWSlot setParameter:withValue:]`
+		- `[FWCreativeRendition setParameter:withValue:]`
+ */
+FW_EXTERN NSString *const FWParameterVastMaxWrapperCount;
+
+/**
+	Parameter: `NSString` representing the amount of time in milliseconds allowed for a VAST creative before it fails due to timeout.
+	Should be a string value which can convert to a int. Default value is "5000".
+
+	- Note: When a timeout occurs, a `FWAdEventNotification` with error code `FWErrorIO` will be dispatched. The ad will be terminated on this error.
+	- SeeAlso: `FWAdEventNotification`
+	- Note: Ad traffickers should use `translator.vast.timeoutInMilliseconds` instead of `FWParameterVastTimeoutInMilliseconds` when setting this parameter in MRM UI.
+	- See:
+		- `[FWContext setParameter:withValue:forLevel:]`
+		- `[FWSlot setParameter:withValue:]`
+		- `[FWCreativeRendition setParameter:withValue:]`
+ */
+FW_EXTERN NSString *const FWParameterVastTimeoutInMilliseconds;
 
 #pragma mark - Request Keys
 
@@ -1805,6 +1874,25 @@ FW_EXTERN NSString *const FWInfoKeyVideoDisplayBase;
  */
 FW_EXTERN NSString *const FWInfoKeyAdVolume;
 
+/**
+ Notification `userInfo` dictionary key: offset. Gets the progress event's offset value in seconds.
+
+ - See:
+	-`FWAdProgressEvent`
+	- `FWAdEventNotification`
+
+ */
+FW_EXTERN NSString *const FWInfoKeyAdOffset;
+
+/**
+ Notification `userInfo` dictionary key: skippableState. Gets the NSNumber value associated with whether the skippable state has changed.
+
+ - See:
+ -`FWAdSkippableStateChangedEvent`
+ - `FWAdEventNotification`
+
+ */
+FW_EXTERN NSString *const FWInfoKeyAdSkippableState;
 
 #pragma mark - Error Codes
 

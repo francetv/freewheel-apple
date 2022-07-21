@@ -37,6 +37,10 @@
 @property (nonatomic) NSTimeInterval minimumDuration;
 
 /**
+	Maximum number of ads allowed for the slot. 0 indicates no limit
+ */
+@property (nonatomic) NSUInteger maxAds;
+/**
  	Signal ID, only applicable in Linear TV Streams, of the break
  */
 @property (nullable, nonatomic) NSString *signalId;

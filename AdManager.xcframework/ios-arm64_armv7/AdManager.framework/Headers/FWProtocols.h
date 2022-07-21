@@ -723,6 +723,13 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
  */
 - (NSTimeInterval)playheadTime;
 
+/**
+ Get the ad instance's skipOffset value
+
+ @return the skipOffset time from a third-party VAST ad in seconds. If the skipOffset time is not supported, not provided, or invalid, it will return -1.
+ */
+- (NSInteger)skipOffset;
+
 #pragma mark - Methods
 
 /**
@@ -749,6 +756,7 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
 	- (`FWAdMinimizeEvent`, `FWEventTypeStandard`): IAB metric, minimize
 	- (`FWAdCloseEvent`, `FWEventTypeStandard`): IAB metric, close
 	- (`FWAdAcceptInvitationEvent`, `FWEventTypeStandard`): IAB metric, accept invitation
+	- (`FWAdSkippedByUserEvent`, `FWEventTypeStandard`): IAB metric, _skip
 
 	@param eventName	Name of the event, see `FWAd*Event`
 	@param eventType	Type of the event, see `FWEventType*`
@@ -770,6 +778,7 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
 	- (`FWAdClickEvent`, `FWEventTypeClickTracking`): click tracking
 	- (`"custom_click_name"`, `FWEventTypeClick`): custom click through
 	- (`"custom_click_name"`, `FWEventTypeClickTracking`): custom click tracking
+	- (`FWAdSkippedByUserEvent`, `FWEventTypeStandard`): IAB metric, _skip
 	- (`FWAdPauseEvent`, `FWEventTypeStandard`): IAB metric, pause
 	- (`FWAdResumeEvent`, `FWEventTypeStandard`): IAB metric, resume
 	- (`FWAdRewindEvent`, `FWEventTypeStandard`): IAB metric, rewind
@@ -822,6 +831,15 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
 - (void)setPrimaryCreativeRendition:(id<FWCreativeRendition>)primaryCreativeRendition;
 
 - (void)play2 DEPRECATED_ATTRIBUTE;
+
+/**
+ Indicates whether the ad playhead time has reached the skipoffset time for VAST Linear Skippable Ads. For VPAID ads, indicates that the ad is able to be skipped.
+ @return `true` if the ad playhead time has reached the skipoffset time for VAST Linear Skippable Ads or when a VPAID ad is able to be skipped. Otherwise returns `false`. If the ad is not skippable, it will remain false.
+
+ - See: `FWAdSkippableStateChangedEvent`
+ */
+- (bool)getAdSkippableState;
+
 
 @end
 
