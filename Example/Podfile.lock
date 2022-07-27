@@ -1,5 +1,5 @@
 PODS:
-  - freewheel (2.3)
+  - freewheel (2.4)
   - MyLibrary (0.1.0):
     - freewheel
 
@@ -14,9 +14,9 @@ EXTERNAL SOURCES:
     :path: "./MyLibrary"
 
 SPEC CHECKSUMS:
-  freewheel: 624e8f85df119fe72f7ba9352faac0ef61c3ee78
+  freewheel: 412d49123443164360d7bf48387df856a1ebfcc7
   MyLibrary: d630d77cd0acb70f529ffab16b5ad216edb2525b
 
 PODFILE CHECKSUM: 0f10c4f41a358ea13d55c97a89d705c658f688ce
 
-COCOAPODS: 1.9.0
+COCOAPODS: 1.11.3

@@ -138,7 +138,6 @@
 			buildConfigurationList = F54E2909255EAB51001EFF95 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				DF76CE4A461FBE172E6B4FC6 /* [CP] Check Pods Manifest.lock */,
-				DD53669C52C4D68BE24D0CBC /* [CP] Prepare Artifacts */,
 				F54E28F1255EAB4F001EFF95 /* Sources */,
 				F54E28F2255EAB4F001EFF95 /* Frameworks */,
 				F54E28F3255EAB4F001EFF95 /* Resources */,
@@ -158,7 +157,6 @@
 			buildConfigurationList = F57D2716255EF897000FB295 /* Build configuration list for PBXNativeTarget "Example-tvOS" */;
 			buildPhases = (
 				25DC75658943ADB607361A52 /* [CP] Check Pods Manifest.lock */,
-				027FC88EE39D5242BC8C63B4 /* [CP] Prepare Artifacts */,
 				F57D2701255EF896000FB295 /* Sources */,
 				F57D2702255EF896000FB295 /* Frameworks */,
 				F57D2703255EF896000FB295 /* Resources */,
@@ -234,23 +232,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		027FC88EE39D5242BC8C63B4 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example-tvOS/Pods-Example-tvOS-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		0B4F60C7BBC87424C83BB2AC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,23 +286,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DD53669C52C4D68BE24D0CBC /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DF76CE4A461FBE172E6B4FC6 /* [CP] Check Pods Manifest.lock */ = {

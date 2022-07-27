@@ -1,3 +1,7 @@
+## `2.4` (22 October 2021)
+
+- Switch `AdManager.xcframework` from `6.44.0` to `6.50.0` for iOS & tvOS
+
 ## `2.3` (22 October 2021)
 
 - `AdManager.xcframework` version `6.44.0` for iOS & tvOS

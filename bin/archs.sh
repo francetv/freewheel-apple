@@ -5,9 +5,9 @@ RED="\033[0;31m"
 NC="\033[0m" # No Color
 
 PATH_TO_BINARY_IOS="AdManager.xcframework/ios-arm64_armv7/AdManager.framework/AdManager"
-PATH_TO_BINARY_IOS_SIMU="AdManager.xcframework/ios-x86_64-simulator/AdManager.framework/AdManager"
+PATH_TO_BINARY_IOS_SIMU="AdManager.xcframework/ios-arm64_x86_64-simulator/AdManager.framework/AdManager"
 PATH_TO_BINARY_TVOS="AdManager.xcframework/tvos-arm64/AdManager.framework/AdManager"
-PATH_TO_BINARY_TVOS_SIMU="AdManager.xcframework/tvos-x86_64-simulator/AdManager.framework/AdManager"
+PATH_TO_BINARY_TVOS_SIMU="AdManager.xcframework/tvos-arm64_x86_64-simulator/AdManager.framework/AdManager"
 
 X86="x86_64"
 ARMV7="armv7"
