@@ -23,8 +23,6 @@ Pod::Spec.new do |s|
   # iOS #
   #######
   s.ios.deployment_target = '10.2'
-  s.ios.user_target_xcconfig = { 'ARCHS' => 'x86_64 arm64 armv7' }
-  s.ios.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 arm64 armv7' }
 
   ########
   # tvOS #

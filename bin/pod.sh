@@ -14,15 +14,15 @@ help() {
 if [[ $1 == "-l" || $1 == "--lib" ]]
 then
   echo -e "${GREEN}Lib lint Freewheel Pod${NC}"
-  rvm 2.6.8 do bundle exec pod lib lint $PODSPEC --verbose --allow-warnings
+  bundle exec pod lib lint $PODSPEC --verbose --allow-warnings
 elif [[ $1 == "-s" || $1 == "--spec" ]]
 then
   echo -e "${GREEN}Spec lint Freewheel Pod${NC}"
-  rvm 2.6.8 do bundle exec pod spec lint $PODSPEC --verbose --allow-warnings
+  bundle exec pod spec lint $PODSPEC --verbose --allow-warnings
 elif [[ $1 == "-p" || $1 == "--push" ]]
 then
   echo -e "${GREEN}Pushing Freewheel Pod${NC}"
-  rvm 2.6.8 do bundle exec pod trunk push $PODSPEC --verbose --allow-warnings
+  bundle exec pod trunk push $PODSPEC --verbose --allow-warnings
 else
   help
 fi
