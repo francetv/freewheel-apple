@@ -4,14 +4,12 @@ GREEN="\033[0;32m"
 RED="\033[0;31m"
 NC="\033[0m" # No Color
 
-PATH_TO_BINARY_IOS="AdManager.xcframework/ios-arm64_armv7/AdManager.framework/AdManager"
-PATH_TO_BINARY_IOS_SIMU="AdManager.xcframework/ios-arm64_x86_64-simulator/AdManager.framework/AdManager"
-PATH_TO_BINARY_TVOS="AdManager.xcframework/tvos-arm64/AdManager.framework/AdManager"
-PATH_TO_BINARY_TVOS_SIMU="AdManager.xcframework/tvos-arm64_x86_64-simulator/AdManager.framework/AdManager"
+PATH_TO_BINARY_IOS="iOS/AdManager.xcframework/ios-arm64/libAdManager.a"
+PATH_TO_BINARY_IOS_SIMU="iOS/AdManager.xcframework/ios-arm64_x86_64-simulator/libAdManager.a"
+PATH_TO_BINARY_TVOS="tvOS/AdManager.xcframework/tvos-arm64/libAdManager.a"
+PATH_TO_BINARY_TVOS_SIMU="tvOS/AdManager.xcframework/tvos-arm64_x86_64-simulator/libAdManager.a"
 
 X86="x86_64"
-ARMV7="armv7"
-ARMV7S="armv7s"
 ARM64="arm64"
 
 IOS_VALIDATION_RESULT=0
@@ -58,15 +56,7 @@ validate_archs_for_os() {
   result=0
   missing_archs=""
   available_archs=$(available_archs_for_os | cut -d : -f3 | awk "{$1=$1}1") # split message using ':' as delimiter, then trim spaces
-  required_archs=""
-
-  if [[ $1 == iOS ]]
-  then
-    required_archs="$X86 $ARMV7 $ARM64"
-  elif [[ $1 == tvOS ]]
-  then
-    required_archs="$X86 $ARM64"
-  fi
+  required_archs="$X86 $ARM64"
 
   for arch in $required_archs
   do
