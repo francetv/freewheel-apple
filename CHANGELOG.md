@@ -1,3 +1,8 @@
+## `2.6` (7 December 2023)
+
+- `AdManager.xcframework` version `6.60.0` for iOS
+- `AdManager.xcframework` version `6.59.0` for tvOS
+
 ## `2.5` (4 December 2023)
 
 - Ruby 3.0.0
