@@ -16,10 +16,10 @@ version_for_os() {
   PATH=''
   if [[ $1 == "iOS" ]]
   then
-    PATH="AdManager.xcframework/ios-arm64_armv7/AdManager.framework/Info.plist"
+    PATH="iOS/AdManager.xcframework/Info.plist"
   elif [[ $1 == "tvOS" ]]
   then
-    PATH="AdManager.xcframework/tvos-arm64/AdManager.framework/Info.plist"
+    PATH="tvOS/AdManager.xcframework/Info.plist"
   fi
   /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "$PATH"
 }
