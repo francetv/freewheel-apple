@@ -14,3 +14,4 @@ francetv take on creating a pod for Freewheel AdManager iOS and tvOS SDK
 | 2.4 | 6.50.0 | 6.50.0  | Update version (xcframework + OMSDK)       |
 | 2.5 | 6.50.0 | 6.50.0  | Update environment and tools               |
 | 2.6 | 6.60.0 | 6.59.0  | Update version                             |
+| 2.7 | 6.60.0 | 6.59.0  | Fix pod with xcframework version           |

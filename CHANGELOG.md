@@ -1,3 +1,7 @@
+## `2.7` (5 January 2024)
+
+- Fix previous version by using xcframework
+
 ## `2.6` (7 December 2023)
 
 - `AdManager.xcframework` version `6.60.0` for iOS
