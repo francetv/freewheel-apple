@@ -1603,6 +1603,17 @@ FW_EXTERN NSString *const FWParameterHTMLRendererIsBackgroundTransparent;
  */
 FW_EXTERN NSString *const FWParameterVPAIDRendererCreativeTimeoutDelay;
 
+/**
+	Parameter: `NSString` representing the timeout value in milliseconds that AdManager will wait for the SIMID creative to respond before reporting an error to the SIMID creative with the RESPONSE_TIMEOUT SIMID Player error code.
+	Note this timeout will not cause the ad to fail. To control the timeout for ad video playback, use FWParameterVideoAdRendererTimeout.
+ 
+	Default value: `@"5000"`
+
+	Valid values: NSString representing an integer
+ 
+ */
+FW_EXTERN NSString *const FWParameterSIMIDRendererCreativeTimeoutDelay;
+
 /*! internal */
 FW_EXTERN NSString *const FW_PARAMETER_REQUEST_TEMPLATE_VARIABLES;
 FW_EXTERN NSString *const FW_PARAMETER_REQUEST_ALTERNATIVE_URL;

@@ -18,7 +18,7 @@
 		</data>
 		<key>Headers/FWConstants.h</key>
 		<data>
-		dkl8w4BjMuJlRONyf2Qx771tahA=
+		VytigtR9JrSNSfYHkK9yXzvubdU=
 		</data>
 		<key>Headers/FWGDPRConsentConfiguration.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/FWProtocols.h</key>
 		<data>
-		DApJ37h01X1QNw/wtMS8XXlaFpY=
+		xRW1vWu8fbqIQ31kJlcZHeUIMXU=
 		</data>
 		<key>Headers/FWRequestConfiguration.h</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/FWVer.h</key>
 		<data>
-		YN+Hb/G5veokHKsa5Xz9RepFrq0=
+		QiwdqBlSTd8hb04OS/6htkgXX0s=
 		</data>
 		<key>Headers/FWVideoAssetConfiguration.h</key>
 		<data>
@@ -78,11 +78,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		w8mJ3+5A+Z1jIru8hsfA3UVzKNw=
+		xeqsxhZgEboNLeYOPxSmy/RlB1g=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		DNCu7EmvR06RmWE56QugV9Bf0Rs=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		g+rTmi4UjOraCQFlkVBaaoSiyUA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -112,7 +116,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			T1HHy2I7pUOW/N5ia7IFfmhDhQ/+mwZrAImBd1rBANc=
+			fOzVnyVMCaE1j60SJAG/735DMCrgFFoA947Yjb4Idvs=
 			</data>
 		</dict>
 		<key>Headers/FWGDPRConsentConfiguration.h</key>
@@ -154,7 +158,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			wUhwCsYNs5Vs3+CUezPZuznK9BWKaPYtMT2sHO42pEg=
+			zPQIfZSm9XvIp1LSf7eqYF+Yk11twq8nAVqVCT7Kbmw=
 			</data>
 		</dict>
 		<key>Headers/FWRequestConfiguration.h</key>
@@ -196,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			adqMt+/g+NlSpqD+/GqMcpNPsO2NlAPUurJGFQrD6ZM=
+			p8ReLfcSii8v1wcV66lg9wkT9GrtpB6r8tQ+aEX8p8c=
 			</data>
 		</dict>
 		<key>Headers/FWVideoAssetConfiguration.h</key>
@@ -218,6 +222,13 @@
 			<key>hash2</key>
 			<data>
 			2kdhqKY0/4od17BKzu1NiFFclAf5LC7FWFXaYHEK2d8=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UzTIHO4zeHFEr2pY6qTq3RU0veiA0jE7SQbz/lvTmUU=
 			</data>
 		</dict>
 	</dict>
