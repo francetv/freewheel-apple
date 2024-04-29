@@ -15,3 +15,6 @@ francetv take on creating a pod for Freewheel AdManager iOS and tvOS SDK
 | 2.5 | 6.50.0 | 6.50.0  | Update environment and tools               |
 | 2.6 | 6.60.0 | 6.59.0  | Update version                             |
 | 2.7 | 6.60.0 | 6.59.0  | Fix pod with xcframework version           |
+| 2.8 | 7.1.0  | 7.1.0   | Update version + PrivacyInfo.xcprivacy     |
+
+_Note: we need to keep 2.x as long as [YouboraFreewheelAdapter](https://bitbucket.org/npaw/freewheel-adapter-ios) points to this pod `~> 2` (see [here](https://bitbucket.org/npaw/freewheel-adapter-ios/src/696bada67ca50924509670cf9d5e27fcc02a114b/YouboraFreewheelAdapter.podspec#lines-39))._

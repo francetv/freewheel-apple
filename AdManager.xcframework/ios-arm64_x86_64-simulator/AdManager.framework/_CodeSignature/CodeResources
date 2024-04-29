@@ -66,7 +66,7 @@
 		</data>
 		<key>Headers/FWVer.h</key>
 		<data>
-		1Vzq5XC4GWBS4n9HO1ygT2KkvkA=
+		AefFgJhaRkJEOKvdNKpNhDLKeEQ=
 		</data>
 		<key>Headers/FWVideoAssetConfiguration.h</key>
 		<data>
@@ -78,11 +78,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		uTKH1azmBmWKZ0gzakq1MfcuVe8=
+		CuMAo0PFu8cQQb0bWRpZWotZ0S8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		DNCu7EmvR06RmWE56QugV9Bf0Rs=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		g+rTmi4UjOraCQFlkVBaaoSiyUA=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -196,7 +200,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			454oZAQcXN+ZeSUjIxjTMCofSB01zx6sMz7rp7Hf3cY=
+			HVvgWWsw8FHq8MDYGnVoJOUszaUAIGaXRavnYmqoAa8=
 			</data>
 		</dict>
 		<key>Headers/FWVideoAssetConfiguration.h</key>
@@ -218,6 +222,13 @@
 			<key>hash2</key>
 			<data>
 			2kdhqKY0/4od17BKzu1NiFFclAf5LC7FWFXaYHEK2d8=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			UzTIHO4zeHFEr2pY6qTq3RU0veiA0jE7SQbz/lvTmUU=
 			</data>
 		</dict>
 	</dict>

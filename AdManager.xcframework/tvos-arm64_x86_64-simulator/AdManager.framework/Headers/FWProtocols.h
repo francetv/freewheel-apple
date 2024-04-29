@@ -479,7 +479,7 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
 	Preload the slot.
 	The notification `FWSlotPreloadedNotification` will be dispatched when the slot has finished preloading.
 
-	- Note: The preload behaviour may differ due to different ad types. Based on the current implementation, it only supports VAST ad.
+	- Note: The preload behaviour may differ due to different ad types. Based on the current implementation, it supports VAST, Image, Video, and SIMID ads.
  */
 - (void)preload;
 
@@ -998,7 +998,7 @@ FW_EXTERN void FWLinkRenderer(Class rendererClass);
 /**
 	Set duration of the rendition
 
-	@return Duration in seconds
+	@param Duration in seconds
  */
 - (void)setDuration:(NSTimeInterval)value;
 
